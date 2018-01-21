@@ -3,6 +3,7 @@ capybara-*.html
 .rspec
 /log
 /tmp
+/spec/dummy/tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
@@ -33,3 +34,7 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+spec/dummy/log/development\.log
+
+spec/dummy/config/page_not_found\.yml
