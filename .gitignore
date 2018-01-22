@@ -38,3 +38,5 @@ bower.json
 spec/dummy/log/development\.log
 
 spec/dummy/config/page_not_found\.yml
+
+\.idea/
