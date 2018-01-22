@@ -7,7 +7,13 @@ module NotFoundCatcher
       rs = NotFoundCatcher.request_store
 
       rs.parse(request) do |req|
-        redirect_to req.redirect
+
+        if req.considered?
+          redirect_to req.redirect
+        else
+          redirect_to NotFoundCatcher.if_not_considered_path.call(request), status: 302
+        end
+
       end
 
     end

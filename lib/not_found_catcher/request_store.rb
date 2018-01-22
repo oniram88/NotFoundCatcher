@@ -3,8 +3,6 @@ class NotFoundCatcher::RequestStore
 
   attr_accessor :path
 
-  Request = Struct.new :full_path, :method, :redirect
-
   def initialize(path)
     self.path = path
   end
@@ -16,15 +14,11 @@ class NotFoundCatcher::RequestStore
 
     store.transaction do
       if store[request.fullpath].nil?
-        store[request.fullpath] = Request.new(request.fullpath, request.request_method, nil)
-      else
-        req = store[request.fullpath]
-
-        unless req.redirect.blank?
-          yield req
-        end
-
+        store[request.fullpath] = NotFoundCatcher::RequestParser.new(request.fullpath, request.request_method, nil)
       end
+
+      yield store[request.fullpath]
+
     end
 
 
