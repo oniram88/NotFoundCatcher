@@ -12,3 +12,8 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+#
+#
+#
+gem 'better_errors'
+gem 'binding_of_caller'
