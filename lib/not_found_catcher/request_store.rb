@@ -10,10 +10,9 @@ class NotFoundCatcher::RequestStore
 
   def parse(request)
 
+    key = get_first_match(request.fullpath)
 
     store.transaction do
-
-      key = get_first_match(request.fullpath)
 
       if key
         req = store[key]
@@ -31,11 +30,11 @@ class NotFoundCatcher::RequestStore
   ##
   # Restituisce la prima chiave matchata
   def get_first_match(path)
-    store.transaction do
+
+    store.transaction(true) do
 
       store.roots.each do |k|
 
-        Rails.logger.debug k.inspect
         if path.match(k)
           return k
         end
@@ -48,8 +47,7 @@ class NotFoundCatcher::RequestStore
   ##
   # Store yaml
   def store
-    #TODO cache?
-    YAML::Store.new self.path
+    @_store ||= YAML::Store.new self.path
   end
 
 end
