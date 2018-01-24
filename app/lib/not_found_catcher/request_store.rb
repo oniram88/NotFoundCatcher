@@ -44,6 +44,28 @@ class NotFoundCatcher::RequestStore
     false
   end
 
+  def each
+
+    store.transaction(true) do
+
+      store.roots.each do |k|
+
+        yield store[k]
+
+      end
+
+    end
+
+  end
+
+  def find(key)
+    rule = nil
+    store.transaction(true) do
+      rule = store[key]
+    end
+    rule
+  end
+
   ##
   # Store yaml
   def store

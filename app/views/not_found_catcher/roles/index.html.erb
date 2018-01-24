@@ -1,0 +1,23 @@
+
+
+<table border="1">
+  <tr>
+    <th>Rule</th>
+    <th>Method</th>
+    <th>Redirect</th>
+    <th></th>
+  </tr>
+
+
+  <% @store.each do |row| %>
+
+  <tr>
+    <td><%= row.role %></td>
+    <td><%= row.method %></td>
+    <td><%= row.redirect %></td>
+    <td><%= link_to 'edit',edit_role_path(row.role) %></td>
+  </tr>
+
+  <%end%>
+
+</table>

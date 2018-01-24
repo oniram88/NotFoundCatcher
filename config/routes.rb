@@ -1,4 +1,9 @@
 NotFoundCatcher::Engine.routes.draw do
+
+  resources :roles, only: [:index, :edit, :update, :destroy]
+
+  root to: 'roles#index'
+
 end
 
 ##
