@@ -34,6 +34,10 @@ module NotFoundCatcher
 
     end
 
+    def id
+      Digest::MD5.hexdigest(self.role)
+    end
+
 
   end
 end

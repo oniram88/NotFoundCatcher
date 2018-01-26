@@ -61,7 +61,9 @@ class NotFoundCatcher::RequestStore
   def find(key)
     rule = nil
     store.transaction(true) do
-      rule = store[key]
+      store.roots.each do |k|
+        rule = store[k] if store[k].id == key
+      end
     end
     rule
   end

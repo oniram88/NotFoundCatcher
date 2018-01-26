@@ -13,7 +13,7 @@ module NotFoundCatcher
     end
 
     def id
-      self.role
+      self.request_parser.id
     end
 
     def save
