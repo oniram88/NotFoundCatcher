@@ -6,6 +6,12 @@ module NotFoundCatcher
       !redirect.blank?
     end
 
+    def build_redirect(request)
+
+      request.fullpath.gsub(Regexp.new(self.role),self.redirect.gsub(/\$([0-9]+)/,'$$$1').gsub('$$$','\\'))
+
+    end
+
     ##
     # Return the relative model for this record
     def model
