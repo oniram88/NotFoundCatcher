@@ -26,5 +26,7 @@ module NotFoundCatcher
 
     end
 
+   delegate :destroy,to: :request_parser
+
   end
 end

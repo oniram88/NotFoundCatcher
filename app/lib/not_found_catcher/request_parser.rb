@@ -38,6 +38,13 @@ module NotFoundCatcher
       Digest::MD5.hexdigest(self.role)
     end
 
+    def destroy
+      store = NotFoundCatcher.request_store.store
+      store.transaction do
+        store.delete(self.role)
+      end
+    end
+
 
   end
 end

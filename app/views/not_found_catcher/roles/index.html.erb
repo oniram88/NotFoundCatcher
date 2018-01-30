@@ -1,5 +1,3 @@
-
-
 <table border="1">
   <tr>
     <th>Rule</th>
@@ -11,13 +9,16 @@
 
   <% @store.each do |row| %>
 
-  <tr>
-    <td><%= row.role %></td>
-    <td><%= row.method %></td>
-    <td><%= row.redirect %></td>
-    <td><%= link_to 'edit',edit_role_path(row.id) %></td>
-  </tr>
+    <tr>
+      <td><%= row.role %></td>
+      <td><%= row.method %></td>
+      <td><%= row.redirect %></td>
+      <td>
+        <%= link_to 'edit', edit_role_path(row.id) %>
+        <%= link_to 'destroy', role_path(row.id), method: :delete, data: {confirm: "Are you sure?"} %>
+      </td>
+    </tr>
 
-  <%end%>
+  <% end %>
 
 </table>
