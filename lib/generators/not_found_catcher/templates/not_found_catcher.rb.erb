@@ -11,4 +11,13 @@ NotFoundCatcher.setup do |c|
   # altrimenti seguono lo standard della configurazione dell'applicativo
   # c.dev_mode=->(env){ Rails.application.routes.url_helpers.root_path }
 
+
+  ##
+  # Controller da cui derivare il lato amministrativo dell'engine
+  #c.base_admin_controller = "ActionController::Base"
+
+
+  ##
+  # Controller da cui derivare il lato catch_all delle chiamate
+  # c.base_catcher_controller = "ActionController::Base"
 end

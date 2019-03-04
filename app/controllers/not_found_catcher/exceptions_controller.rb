@@ -1,6 +1,6 @@
 require 'yaml'
 module NotFoundCatcher
-  class ExceptionsController < ApplicationController
+  class ExceptionsController < NotFoundCatcher.base_catcher_controller.constantize
 
     def show
       # qua registriamo qualsiasi nuova richiesta

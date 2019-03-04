@@ -16,10 +16,11 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
+Installazione dell'inizializzatore
 ```bash
-$ gem install not_found_catcher
+bin/rails g not_found_catcher install
 ```
+
 
 ## Contributing
 Contribution directions go here.

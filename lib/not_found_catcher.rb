@@ -21,6 +21,17 @@ module NotFoundCatcher
     )
   end
 
+  ##
+  # Controller da cui derivare il lato amministrativo dell'engine
+  mattr_accessor :base_admin_controller
+  @@base_admin_controller = "ActionController::Base"
+
+
+  ##
+  # Controller da cui derivare il lato catch_all delle chiamate
+  mattr_accessor :base_catcher_controller
+  @@base_catcher_controller = "ActionController::Base"
+
 
   ##
   # Se siamo in sviluppo e questa configurazione è a true, tutte le richieste non saranno locali
