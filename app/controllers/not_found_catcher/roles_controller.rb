@@ -1,5 +1,5 @@
 module NotFoundCatcher
-  class RolesController < ApplicationController
+  class RolesController < NotFoundCatcher::ApplicationController
 
     before_action :load_object, only: [:edit, :update, :destroy]
 

@@ -4,12 +4,12 @@ NotFoundCatcher.setup do |c|
   # c.request_db= -> {Rails.root.join('config', 'page_not_found.yml')}
 
   # Redirect nel caso non abbiamo nessun match o regola di redirect nel DB
-  # c.if_not_considered = ->(env){ Rails.application.routes.url_helpers.root_path }
+  # c.if_not_considered_path = ->(env){ Rails.application.routes.url_helpers.root_path }
 
   ##
   # Se siamo in sviluppo e questa configurazione è a true, tutte le richieste non saranno locali
   # altrimenti seguono lo standard della configurazione dell'applicativo
-  # c.dev_mode=->(env){ Rails.application.routes.url_helpers.root_path }
+  # c.dev_mode=false
 
 
   ##

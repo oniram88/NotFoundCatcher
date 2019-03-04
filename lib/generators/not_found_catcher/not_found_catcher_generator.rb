@@ -5,4 +5,9 @@ class NotFoundCatcherGenerator < Rails::Generators::NamedBase
     copy_file 'not_found_catcher.rb.erb', 'config/initializers/not_found_catcher.rb'
   end
 
+  def install_routes
+    route 'mount NotFoundCatcher::Engine => "/not_found_catcher"'
+  end
+
+
 end

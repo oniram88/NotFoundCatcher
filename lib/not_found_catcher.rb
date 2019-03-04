@@ -41,7 +41,7 @@ module NotFoundCatcher
 
   # Redirect nel caso non abbiamo nessun match o regola di redirect nel DB
   mattr_accessor :if_not_considered_path
-  @@if_not_considered = ->(env) {Rails.application.routes.url_helpers.root_path}
+  @@if_not_considered_path = ->(env) {Rails.application.routes.url_helpers.root_path}
 
 
   ##

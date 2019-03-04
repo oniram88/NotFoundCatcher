@@ -35,7 +35,7 @@ module NotFoundCatcher
 
           end
         rescue Exception => e
-          Rails.logger.info {"[NOT_FOUND_CATCHER] Problemi - #{e.message}"}
+          Rails.logger.info {"[NOT_FOUND_CATCHER] Problemi - #{e.message} - #{e.backtrace.join("\n")}"}
         end
 
       end
