@@ -41,8 +41,18 @@ module NotFoundCatcher
 
   # Redirect nel caso non abbiamo nessun match o regola di redirect nel DB
   mattr_accessor :if_not_considered_path
-  @@if_not_considered = ->(env){ Rails.application.routes.url_helpers.root_path }
+  @@if_not_considered = ->(env) {Rails.application.routes.url_helpers.root_path}
 
+
+  ##
+  # Elenco degli errori da ascoltare
+  mattr_accessor :exceptions_to_catch
+  @@exceptions_to_catch = ['NotFoundCatcher::NotFoundRouteException']
+
+  ##
+  # Catcher attivo o meno, utile per quando si è in sviluppo
+  mattr_accessor :enabled
+  @@enabled = true
 
   # Default way to setup TikalCore. Run "rails generate tikal_core_install" to create
   # a fresh initializer with all configuration values.

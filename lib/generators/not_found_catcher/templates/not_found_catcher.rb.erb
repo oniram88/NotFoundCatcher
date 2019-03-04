@@ -20,4 +20,14 @@ NotFoundCatcher.setup do |c|
   ##
   # Controller da cui derivare il lato catch_all delle chiamate
   # c.base_catcher_controller = "ActionController::Base"
+
+
+  ##
+  # Catcher attivo o meno, utile per quando si è in sviluppo
+  c.enabled = Rails.env.production?
+
+  ##
+  # Elenco degli errori da ascoltare
+  # c.exceptions_to_catch << Exception # to catch all
+
 end
