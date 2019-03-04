@@ -1,0 +1,8 @@
+Description:
+    Execute the installation
+
+Example:
+    rails generate not_found_catcher install
+
+    This will create:
+        config/initializer/not_found_catcher.rb
