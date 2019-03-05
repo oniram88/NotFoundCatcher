@@ -10,7 +10,9 @@ module NotFoundCatcher
     # end
 
     initializer 'not_found_catcher.set_error_catcher_middleware' do |app|
-      app.config.middleware.use NotFoundCatcher::Middleware
+      if NotFoundCatcher.enabled
+        app.config.middleware.use NotFoundCatcher::Middleware
+      end
     end
 
   end
