@@ -34,7 +34,9 @@ module NotFoundCatcher
     private
 
     def check_redirect_uniqueness
-      self.errors.add(:redirect, :not_unique) if NotFoundCatcher.request_store.find_by_redirect(self.redirect)
+      unless self.redirect.blank?
+        self.errors.add(:redirect, :not_unique) if NotFoundCatcher.request_store.find_by_redirect(self.redirect)
+      end
     end
 
   end
