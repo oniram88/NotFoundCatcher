@@ -21,7 +21,9 @@ module NotFoundCatcher
           @obj.save
           f.html {redirect_to root_path}
         else
-          render :edit
+          f.html {
+            render :edit
+          }
         end
 
       end
@@ -41,6 +43,7 @@ module NotFoundCatcher
     end
 
     private
+
     def load_object
       @obj = NotFoundCatcher.request_store.find(params[:id]).model
     end

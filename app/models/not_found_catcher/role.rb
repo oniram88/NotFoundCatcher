@@ -7,6 +7,8 @@ module NotFoundCatcher
     attribute :http_method, :string
     attribute :redirect, :string
 
+    validate :check_redirect_uniqueness
+
 
     def persisted?
       true
@@ -26,7 +28,14 @@ module NotFoundCatcher
 
     end
 
-   delegate :destroy,to: :request_parser
+    delegate :destroy, to: :request_parser
+
+
+    private
+
+    def check_redirect_uniqueness
+      self.errors.add(:redirect, :not_unique) if NotFoundCatcher.request_store.find_by_redirect(self.redirect)
+    end
 
   end
 end

@@ -68,6 +68,16 @@ class NotFoundCatcher::RequestStore
     rule
   end
 
+  def find_by_redirect(key)
+    rule = nil
+    store.transaction(true) do
+      store.roots.each do |k|
+        rule = store[k] if store[k].redirect == key
+      end
+    end
+    rule
+  end
+
   ##
   # Store yaml
   def store
