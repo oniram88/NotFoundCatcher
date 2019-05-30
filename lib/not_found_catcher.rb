@@ -4,6 +4,7 @@ module NotFoundCatcher
 
   autoload :RequestStore
   autoload :RequestParser
+  autoload :NotFoundRouteException
 
   ##
   # Posizione del file yml in cui registrare tutte le richieste andate male
